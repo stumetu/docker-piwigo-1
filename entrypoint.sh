@@ -13,6 +13,9 @@ done;
 sed -i "s/\/var\/www\/html/\/var\/www/g"  /etc/apache2/sites-enabled/000-default.conf
 sed -i '/^\s*DocumentRoot.*/a \\tSetEnv HTTPS on' /etc/apache2/sites-enabled/000-default.conf
 
+sed -i 'ServerName piwigo.onrender.com' /etc/apache2/apache2.conf
+systemctl restart apache2
+
 chown -R www-data:www-data /var/www
 
 if [ ! -z "${PIWIGO_MYSQL_ENGINE}" ]; then
