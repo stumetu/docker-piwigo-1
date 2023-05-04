@@ -27,6 +27,5 @@ RUN apt update -y \
      && php_version=$(php -r 'echo phpversion();') \
      && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN php -v > php_version.txt
-    cat ./php_version.txt
+RUN php -v
 EXPOSE 80
